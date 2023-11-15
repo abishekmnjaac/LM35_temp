@@ -1,0 +1,33 @@
+const int sensor=A0; // Assigning analog pin A0to variable 'sensor'
+
+float tempc; //variable to store temperature in degree Celsius
+float vout; //temporary variable to hold sensor reading
+
+void setup() 
+{
+pinMode(LED_BUILTIN, OUTPUT);    // initialize digital pin LED_BUILTIN as an output.
+pinMode(sensor,INPUT); // Configuring sensor pin as input
+Serial.begin(9600); // baudrate for serial communication , frequency
+
+}
+
+void loop() {
+
+vout=analogRead(sensor); //Reading the value from sensor and assigning value into variable vout
+vout=(vout*500)/1023;  // to get the values in preferred readings
+tempc=vout; // Storing value in Degree Celsius
+Serial.print("in DegreeC=");
+Serial.print\n(tempc);
+
+if( tempc < 30)
+{
+digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+delay(250);    
+} 
+else if  
+{
+digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
+delay(500);                      // wait for a second
+}
+
+}
